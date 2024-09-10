@@ -1,0 +1,102 @@
+/* Genel Ayarlar */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* Menü İkonu */
+.menu-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #00B4C3;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1000;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 5px;
+    top: 20px; /* Başlangıç konumu */
+    right: 20px; /* Sağda */
+    /* Geçiş süresini kaldırdık */
+}
+
+/* Kenar Belirteçleri */
+.highlight-right, .highlight-left, .highlight-top {
+    position: absolute;
+    z-index: 999;
+    background: rgba(0, 180, 195, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.highlight-right {
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+}
+
+.highlight-left {
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 100%;
+}
+
+.highlight-top {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+}
+
+/* Highlight aktif olduğunda görünür */
+.highlight-active {
+    opacity: 1;
+}
+
+/* Menü Stili */
+.menu {
+    position: absolute;
+    width: 100%; /* Tüm ekranı kaplayacak */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Menü arka planı */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0; /* Gizli başlar */
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 10px 0;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.menu li:hover {
+    background-color: #444;
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Menü açıkken tam ekran görünür */
+.menu.show {
+    opacity: 1;
+    visibility: visible;
+}
